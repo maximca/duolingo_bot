@@ -11,8 +11,8 @@ cur = conn.cursor()
 cur.execute("""CREATE TABLE IF NOT EXISTS users(
    user_id INT PRIMARY KEY,
    name TEXT,
-   experience_points_start INTEGER
-   experience_points_site INTEGER
+   experience_points_start INTEGER,
+   experience_points_site INTEGER,
    experience_points_game INTEGER);
 """)
 conn.commit()
