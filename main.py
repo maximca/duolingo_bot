@@ -11,8 +11,8 @@ cur = conn.cursor()
 cur.execute("""CREATE TABLE IF NOT EXISTS users(
    user_id INT PRIMARY KEY,
    name TEXT,
-   experience_points_start INTEGER
-   experience_points_site INTEGER
+   experience_points_start INTEGER,
+   experience_points_site INTEGER,
    experience_points_game INTEGER);
 """)
 conn.commit()
@@ -27,6 +27,11 @@ conn.commit()
 def add_user(a, b, c, d, e):
     user = (a, b, c, d, e)
     cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?);", user)
+    conn.commit()
+
+# Удаляем пользователя по имени
+def del_user(user):
+    cur.execute("DELETE FROM users WHERE name=user;")
     conn.commit()
 
 # Берем данные из таблицы
